@@ -1,14 +1,32 @@
-<head>
-  <title>quicklink</title>
-</head>
+<template name="main">
+	Quicklink
+	{{> links}}
+</template>
 
-<body>
-  <h1>Welcome to Meteor!</h1>
+<template name="links">
+	{{> addLink}}
+	<ul>
+		{{#each linklist}}
+			{{> linkItem}}
+		{{/each}}
+	</ul>
+	{{> linkCounter}}
+</template>
 
-  {{> hello}}
-</body>
+<template name="addLink">
+	<form>
+		New Link:
+		<input type="text" placeholder="Enter a url here" name="linkURL">
+	</form>
+</template>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="linkItem">
+	<li>
+		<input type="text" value="{{linkurl}}" name="linkItem">
+		[<a href="#" class="delete-link"> X </a>]
+	</li>
+</template>
+
+<template name-"linkCounter">
+	<p><i>{{totalLinks}} links </i></p>
 </template>
