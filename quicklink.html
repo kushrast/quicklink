@@ -1,8 +1,25 @@
-<template name="main">
-	Quicklink
-	{{> links}}
+<template name="home">
+	Welcome to the QuickLinks Application
 </template>
 
+<template name="main">
+	<h1> QuickLink </h1>
+	{{> yield}}
+</template>
+
+<template name="listPage">
+	{{> openLinks}}
+	{{> addListName}}
+	{{> links}}
+</template>
+<template name="openLinks">
+	Open Links automatically? <input type="checkbox" name="openLinks" {{checked}}>
+</template>
+<template name="addListName">
+	<form>
+		List: <input type="text" placeholder="Give this list a name..." value="{{listName}}" name="listName">
+	</form>
+</template>
 <template name="links">
 	{{> addLink}}
 	<ul>
@@ -10,23 +27,32 @@
 			{{> linkItem}}
 		{{/each}}
 	</ul>
+	{{> linkButton}}
 	{{> linkCounter}}
 </template>
 
 <template name="addLink">
 	<form>
 		New Link:
-		<input type="text" placeholder="Enter a url here" name="linkURL">
+		<input type="url" placeholder="Enter a url here" name="linkURL">
 	</form>
 </template>
 
 <template name="linkItem">
 	<li>
-		<input type="text" value="{{linkurl}}" name="linkItem">
+		<a target="_blank" href="{{linkurl}}">{{linkurl}}</a>
 		[<a href="#" class="delete-link"> X </a>]
 	</li>
 </template>
+<template name="linkButton">
+	<input type="button" name="linkOpener" value="Open all Links">
+</template>
+<template name="linkCounter">
+	<p><i>{{totalLinks}}/10 links </i></p>
+</template>
 
-<template name-"linkCounter">
-	<p><i>{{totalLinks}} links </i></p>
+<template name="addList">
+	<form> Create a new QuickLink list:
+		<input type="submit" value="New List" name="">
+	</form>
 </template>

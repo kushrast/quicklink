@@ -1,16 +1,16 @@
-[name=linkItem]{
+.hiddenTextBox{
     border:none;
     font-family: "Times New Roman";
     font-size: 100%;
     padding:0.15em;
 }
 
-[name=linkItem]:hover{
+.hiddenTextBox:hover{
     background-color: #f9f9f9;
     cursor:pointer;
 }
 
-[name=linkItem]:focus{
+.hiddenTextBox:focus{
     background-color: #f9f9f9;
     cursor:default;
     outline:none;
