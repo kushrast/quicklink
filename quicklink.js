@@ -35,15 +35,15 @@ if (Meteor.isClient) {
   Template.openLinks.helpers({
     'checked': function(){
       var currentList = this._id;
+      if (Session.get(currentList) == null){
+        Session.setPersistent(currentList,true);
+      }
       if (Session.get(currentList) == true){
         var linksList = Links.find({listID: currentList});
         linksList.forEach(function(linkVals){
           window.open(linkVals.linkurl,linkVals.linkurl);
         });
         return 'checked';
-      }
-      if (Session.get(currentList) == null){
-        Session.setPersistent(currentList,true);
       }
     }
   });
