@@ -1,17 +1,14 @@
-.hiddenTextBox{
-    border:none;
-    font-family: "Times New Roman";
-    font-size: 100%;
-    padding:0.15em;
+.container {
+	padding-top: 40px
+}
+.title {
+	padding-top: 20px;
+	padding-bottom: 40px;
+	background-color: #8e44ad;
+	color: white;
+	font-family: Lato;
 }
 
-.hiddenTextBox:hover{
-    background-color: #f9f9f9;
-    cursor:pointer;
-}
-
-.hiddenTextBox:focus{
-    background-color: #f9f9f9;
-    cursor:default;
-    outline:none;
+.panel {
+	margin-top: 20px
 }
