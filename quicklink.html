@@ -16,7 +16,6 @@
 </template>
 
 <template name="listPage">
-	{{> openLinks}}
 	{{> addListName}}
 	{{> links}}
 </template>
@@ -25,38 +24,44 @@
 </template>
 <template name="addListName">
 	<form>
-		<div class="form-group">
-			<input type="text" class="form-control" placeholder="Give this list a name..." value="{{listName}}" name="listName">
+		<div class="form-group col-xs-8 col-xs-offset-2">
+			<input type="text" class="form-control input-lg listName" placeholder="Give this list a name..." value="{{listName}}" name="listName">
 		</div>
 	</form>
 </template>
 <template name="links">
-	{{> addLink}}
-	<ul>
-		{{#each linklist}}
-			{{> linkItem}}
-		{{/each}}
-	</ul>
-	{{> linkButton}}
-	{{> linkCounter}}
+	<div class="col-md-offset-1">
+		{{> addLink}}
+		<div class="row links">
+			<ul class="list-group col-md-8 col-md-offset-2">
+				{{#each linklist}}
+					{{> linkItem}}
+				{{/each}}
+			</ul>
+		</div>
+		{{> linkButton}}
+		{{> linkCounter}}
+		{{> openLinks}}
+	</div>
 </template>
 
 <template name="addLink">
-	<form>
+	<form class="form-inline">
 		<div class="form-group">
-			New Link: <input type="url" placeholder="Enter a url here" name="linkURL">
+			<label for="urlInput"> New Link: </label> 
+			<input type="url" class="form-control" id="urlInput" placeholder="Enter a url here" name="linkURL">
 		</div>
 	</form>
 </template>
 
 <template name="linkItem">
-	<li>
+	<li class="list-group-item">
 		<a target="_blank" href="{{linkurl}}">{{linkurl}}</a>
-		[<a href="#" class="delete-link"> X </a>]
+		<span href="#" class="delete-link label label-danger pull-right"> Delete </span>
 	</li>
 </template>
 <template name="linkButton">
-	<button class="btn-group" name="linkOpener"> Open all Links </button>
+	<input class="btn btn-primary" type="button" name="linkOpener" value="Open all Links">
 </template>
 <template name="linkCounter">
 	<p><i>{{totalLinks}}/10 links </i></p>

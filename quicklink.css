@@ -12,3 +12,13 @@
 .panel {
 	margin-top: 20px
 }
+
+.listName {
+	outline: 0;
+	border: 0px;
+	text-align: center
+}
+
+.links {
+	padding-top: 20px
+}
